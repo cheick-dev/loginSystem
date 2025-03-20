@@ -1,0 +1,58 @@
+<?php
+require '../model/user.php';
+$message = "";
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['password'])) {
+        $message = registerUser($_POST['nom'], $_POST['prenom'], $_POST['email'], $_POST['password']);
+        if ($message === true) {
+            header('Location: home.php');
+            exit();
+        }
+    } else {
+        $message = "Tous les champs sont requis.";
+    }
+}
+?>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
+</head>
+
+<body class="d-flex align-items-center justify-content-center vh-100">
+  <div class="container ">
+    <div class="row justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6 p-5 shadow-sm bg-light rounded">
+        <h2 class="mb-4 text-center">Inscription</h2>
+        <?php if (!empty($message) && $message !== true): ?>
+          <div class="alert alert-danger"><?= $message; ?></div>
+        <?php endif; ?>
+        <form method="post">
+          <div class="mb-3">
+            <label class="form-label">Nom</label>
+            <input type="text" name="nom" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Prénom</label>
+            <input type="text" name="prenom" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-control" required>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Mot de passe</label>
+            <input type="password" name="password" class="form-control" required>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">S'inscrire</button>
+        </form>
+        <p class="mt-4 text-center">Déjà un compte ? <a href="login.php">Se connecter</a></p>
+      </div>
+    </div>
+  </div>
+  <script src="../assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
