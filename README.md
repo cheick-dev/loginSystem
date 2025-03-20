@@ -39,7 +39,7 @@ LoginSystem/
 ### 1️⃣ Cloner le projet
 
 ```bash
-git clone https://github.com/ton-projet/login-system-php.git
+git clone https://github.com/cheick-dev/loginSystem.git
 cd login-system-php
 
 php -v # Vérifiez que PHP est bien installé
