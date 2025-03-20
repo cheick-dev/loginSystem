@@ -2,6 +2,7 @@
 
 ## 📂 Structure du projet
 
+```
 LoginSystem/
 │── assets/
 │   ├── css         # Le css de de Bootstrap en local
@@ -23,7 +24,9 @@ LoginSystem/
 │
 │── index.php              # Point d'entré du projet qui fait une simple redirection vers home.php
 │
-│── README.md              # Documentation du projet
+│── README.md              # Documentation du projet`
+```
+
 
 ## 🚀 Fonctionnalités
 
